@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Travel App</title>
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+    <link rel="stylesheet" href="/styles/style.scss">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/clouds/100/000000/airplane-take-off.png" width="20%" />
+        </div>
+
+    </header>
+
+    <main>
+        <section>
+            <form class="form" onsubmit="return Client.handleSubmit(event)">
+                <input id="city" type="text" name="input" placeholder="City" required>
+                <input id="start-date" type="date" name="input" placeholder="Start Date" required>
+                <input id="end-date" type="date" name="input" placeholder="End Date" required>
+                <input type="submit" name="submit" value="submit" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return handleSubmit(event)">
+            </form>
+            <section>
+
+                <section class="results">
+                    <strong>My trips:</strong>
+                    <img src="" alt="" id="pixa">
+                    <p>Duration : <span id="duration"></span> days</p>
+                    <p>Country : <span id="country"></span></p>
+                    <p>Latitude : <span id="latitude"></span></p>
+                    <p>Longitude : <span id="longitude"></span></p>
+                    <p>High: <span id="high"></span> Low: <span id="low"></span></p>
+                </section>
+    </main>
+
+
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+
+</html>

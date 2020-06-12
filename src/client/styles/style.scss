@@ -1,0 +1,25 @@
+body {
+    background-color: skyblue;
+
+  }
+  
+  .form {
+    text-align: center;
+  }
+  
+  .results{
+    padding: 10%;
+    text-align: center;
+  }
+  .logo{
+    text-align: center;
+    padding: 5%;
+
+  }
+
+  
+   @media screen and (max-width: 460px) {
+     .logo {
+       padding: 0%;
+     }
+   }
