@@ -4,8 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Travel App</title>
-    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
-    <link rel="stylesheet" href="/styles/style.scss">
 
 </head>
 
@@ -24,14 +22,15 @@
                 <input id="city" type="text" name="input" placeholder="City" required>
                 <input id="start-date" type="date" name="input" placeholder="Start Date" required>
                 <input id="end-date" type="date" name="input" placeholder="End Date" required>
-                <input type="submit" name="submit" value="submit" onclick="return Client.handleSubmit(event)"
-                    onsubmit="return handleSubmit(event)">
+                <input type="submit" name="submit" value="submit" id="submit">
+                <!-- onclick="return Client.handleSubmit(event)" -->
+                <!-- onsubmit="return handleSubmit(event)"> -->
             </form>
             <section>
 
                 <section class="results">
                     <strong>My trips:</strong>
-                    <img src="" alt="" id="pixa">
+                    <div><img src="" alt="" id="pixa"></div>
                     <p>Duration : <span id="duration"></span> days</p>
                     <p>Country : <span id="country"></span></p>
                     <p>Latitude : <span id="latitude"></span></p>

@@ -1,44 +1,46 @@
 
 const geoNamesURL = 'http://api.geonames.org/searchJSON?q=';
 const username = '&username=' + "rawanalkhalawi";
-const weatherBitURL = 'https://api.weatherbit.io/v2.0/forecast/daily?city=';
+const weatherBitURL = 'https://api.weatherbit.io/v2.0/forecast/daily?';
 const weatherBitKey = '&key=aafbf3c5251f4467b08422ae258da8e2';
 const pixabayURL = 'https://pixabay.com/api/?key=' + "17002099-7aee7153096e0f607f59fc104";
+const submit = document.getElementById('submit')
+
+document.addEventListener('DOMContentLoaded', function () {
+    submit.addEventListener('click', handleSubmit);
+});
 
 function handleSubmit(event) {
 
     event.preventDefault()
     const city = document.getElementById('city').value;
-
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
 
     getGeoNames(geoNamesURL + city + username)
         .then(function (geoResult) {
-            postData('http://localhost:3000/addData', {
-                latitude: geoResult.geonames[0].latitude,
-                longitude: geoResult.geonames[0].longitude,
-                country: geoResult.geonames[0].country,
-            })
-            getWeatherBit(weatherBitURL + city + weatherBitKey)
+
+            getWeatherBit(geoResult.geonames[0].lat, geoResult.geonames[0].lng, startDate, endDate)
                 .then(function (webitResult) {
-                    postData('http://localhost:3000/addData', {
-                        high: webitResult.data[0].high,
-                        low: webitResult.data[0].low,
 
-                    })
 
-                })
 
-            getPixabay(pixabayURL + "&q=" + city + "&image_type=photo")
-                .then(function (imageurl) {
-                    postData('http://localhost:3000/addData', {
-                        'Image': imageurl
-                    })
-                    updateUI(imageurl)
-                }).catch((error) => {
-                    console.log('Error:', error);
-                })
+                    getPixabay(pixabayURL + "&q=" + city + "&image_type=photo")
+                        .then(function (image) {
+                            postData('http://localhost:3000/addData', {
+                                'Image': image,
+                                high: webitResult.data[0].max_temp,
+                                low: webitResult.data[0].low_temp,
+                                latitude: geoResult.geonames[0].lat,
+                                longitude: geoResult.geonames[0].lng,
+                                country: geoResult.geonames[0].countryName,
+                            })
+                            updateUI(image);
 
-        });
+                        })
+
+                });
+        })
 
 
 }
@@ -50,18 +52,20 @@ const getGeoNames = async (geoNamesURL) => {
 
         const data = await res.json();
         console.log(data);
+
         return data;
     } catch (error) {
         console.log('Error:', error);
     }
 }
 
-const getWeatherBit = async (weatherBitURL) => {
-    const res = await fetch(weatherBitURL);
+const getWeatherBit = async (latitude, longitude, startDate, endDate) => {
+    const res = await fetch(weatherBitURL + "&lat=" + latitude + "&lon=" + longitude + "&start_date=" + startDate + "&end_date=" + endDate + "&units=I" + weatherBitKey);
     try {
         const data = await res.json();
         console.log(data);
         return data;
+
     } catch (error) {
         console.log('Error:', error);
     }
@@ -70,9 +74,10 @@ const getWeatherBit = async (weatherBitURL) => {
 const getPixabay = async (pixabayURL) => {
     const res = await fetch(pixabayURL);
     try {
-        let pixaImage = await res.json();
-        const imageurl = pixaImage.hits[0].webformatURL;
-        return imageurl;
+        let pixa = await res.json();
+        const image = pixa.hits[0].webformatURL;
+        return image;
+
     } catch (error) {
         console.log('Error:', error);
     }
@@ -87,10 +92,9 @@ const updateUI = async (imageurl) => {
     const end = new Date(endDate);
     const days = Math.round(Math.abs((start - end) / 86400000));
 
-
     try {
-
         const allData = await request.json();
+
 
         document.getElementById('duration').innerHTML = days;
         document.getElementById('country').innerHTML = allData.country;

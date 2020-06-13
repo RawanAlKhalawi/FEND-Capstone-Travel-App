@@ -17,9 +17,16 @@ body {
 
   }
 
-  
+  #pixa{
+    width: 40%;
+    text-align: center;
+
+  }
    @media screen and (max-width: 460px) {
      .logo {
        padding: 0%;
+     }
+     #pixa{
+       width: 20%;
      }
    }

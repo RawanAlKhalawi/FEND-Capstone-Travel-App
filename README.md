@@ -11,7 +11,7 @@
 - `npm install`
 - `npm run build-prod `
 - `npm start to run` 
-- `npm run test`
+- `npm run test-dev`
 
 
 
