@@ -47,3 +47,4 @@ app.post('/addData', function (req, res) {
     res.send(JSON.stringify(projectData));
 });
 
+module.exports = app

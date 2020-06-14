@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     submit.addEventListener('click', handleSubmit);
 });
 
+//main function
 function handleSubmit(event) {
 
     event.preventDefault()
@@ -45,7 +46,7 @@ function handleSubmit(event) {
 
 }
 
-
+//function to get data from geonames
 const getGeoNames = async (geoNamesURL) => {
     const res = await fetch(geoNamesURL);
     try {
@@ -59,6 +60,7 @@ const getGeoNames = async (geoNamesURL) => {
     }
 }
 
+//function to get data from WeatherBit
 const getWeatherBit = async (latitude, longitude, startDate, endDate) => {
     const res = await fetch(weatherBitURL + "&lat=" + latitude + "&lon=" + longitude + "&start_date=" + startDate + "&end_date=" + endDate + "&units=I" + weatherBitKey);
     try {
@@ -71,6 +73,7 @@ const getWeatherBit = async (latitude, longitude, startDate, endDate) => {
     }
 }
 
+//function to get image from Pixabay
 const getPixabay = async (pixabayURL) => {
     const res = await fetch(pixabayURL);
     try {
@@ -83,6 +86,7 @@ const getPixabay = async (pixabayURL) => {
     }
 }
 
+//function to update page
 const updateUI = async (imageurl) => {
     const request = await fetch('http://localhost:3000/all');
 
@@ -109,6 +113,8 @@ const updateUI = async (imageurl) => {
         console.log('error', error);
     }
 }
+
+//Post
 const postData = async (url = '', data = {}) => {
     const res = await fetch(url, {
         method: 'POST',
