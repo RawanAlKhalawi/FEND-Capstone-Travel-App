@@ -56,7 +56,7 @@ body {
   #logo{
     text-align: center;
    // padding: 5%;
-    width: 40%;}
+    width: 20%;}
   .results{
     padding: 10%;
     text-align: center;
@@ -67,4 +67,205 @@ body {
     text-align: center;
   
   }
+}
+  @media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) {
+   body{
+     padding: 10%;
+   }
+   
+    #city{
+      font-size: 70%;
+      margin: auto;
+      display: block;
+      width: 30%;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 3%;
+      margin-top: 3%;
+
+
+  
+    }
+    #start-date{
+      font-size: 70%;
+      margin: auto;
+      width: 30%;
+      display: block;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 3%;
+
+    }
+    #end-date{
+      font-size: 70%;
+      margin: auto;
+      width: 30%;
+      display: block;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 3%;
+
+    }
+    #submit{
+      font-size: 70%;
+      margin: auto;
+      width: 15%;
+      display: block;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 3%;
+
+
+    }
+   
+    #logo{
+      text-align: center;
+      padding: 10%;
+      width: 40%;
+
+    }
+    .results{
+      padding: 10%;
+      text-align: center;
+      font-size: 200%;
+    }
+    #pixa{
+      width: 40%;
+      text-align: center;
+
+  }
+}
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+  body{
+    padding: 10%;
+  }
+  
+   #city{
+     font-size: 70%;
+     margin: auto;
+     display: block;
+     width: 30%;
+     text-align: center;
+     padding: 10px;
+     margin-bottom: 3%;
+     margin-top: 3%;
+
+
+ 
+   }
+   #start-date{
+     font-size: 70%;
+     margin: auto;
+     width: 30%;
+     display: block;
+     padding: 10px;
+     text-align: center;
+     margin-bottom: 3%;
+
+   }
+   #end-date{
+     font-size: 70%;
+     margin: auto;
+     width: 30%;
+     display: block;
+     padding: 10px;
+     text-align: center;
+     margin-bottom: 3%;
+
+   }
+   #submit{
+     font-size: 70%;
+     margin: auto;
+     width: 15%;
+     display: block;
+     text-align: center;
+     padding: 10px;
+     margin-bottom: 3%;
+
+
+   }
+  
+   #logo{
+     text-align: center;
+     padding: 10%;
+     width: 40%;
+
+   }
+   .results{
+     padding: 10%;
+     text-align: center;
+     font-size: 200%;
+   }
+   #pixa{
+     width: 40%;
+     text-align: center;
+
  }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) { 
+  body{
+    padding: 10%;
+  }
+  
+   #city{
+     font-size: 70%;
+     margin: auto;
+     display: block;
+     width: 30%;
+     text-align: center;
+     padding: 10px;
+     margin-bottom: 3%;
+     margin-top: 3%;
+
+
+ 
+   }
+   #start-date{
+     font-size: 70%;
+     margin: auto;
+     width: 30%;
+     display: block;
+     padding: 10px;
+     text-align: center;
+     margin-bottom: 3%;
+
+   }
+   #end-date{
+     font-size: 70%;
+     margin: auto;
+     width: 30%;
+     display: block;
+     padding: 10px;
+     text-align: center;
+     margin-bottom: 3%;
+
+   }
+   #submit{
+     font-size: 70%;
+     margin: auto;
+     width: 15%;
+     display: block;
+     text-align: center;
+     padding: 10px;
+     margin-bottom: 3%;
+
+
+   }
+  
+   #logo{
+     text-align: center;
+     padding: 10%;
+     width: 40%;
+
+   }
+   .results{
+     padding: 10%;
+     text-align: center;
+     font-size: 200%;
+   }
+   #pixa{
+     width: 40%;
+     text-align: center;
+
+ }
+}
